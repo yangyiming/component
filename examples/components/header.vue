@@ -269,7 +269,7 @@
   <div class="headerWrapper">
     <header class="header" ref="header">
       <div class="container">
-        <h1><router-link :to="`/${ lang }`">
+        <h1><router-link :to="`/`">
           <!-- logo -->
           <slot>
             <img
@@ -292,13 +292,13 @@
           <li class="nav-item">
             <router-link
               active-class="active"
-              :to="`/${ lang }/guide`">{{ langConfig.guide }}
+              :to="`/guide`">{{ langConfig.guide }}
             </router-link>
           </li>
           <li class="nav-item">
             <router-link
               active-class="active"
-              :to="`/${ lang }/component`">{{ langConfig.components }}
+              :to="`/component`">{{ langConfig.components }}
             </router-link>
           </li>
           <li 
@@ -306,13 +306,13 @@
           >
             <router-link
               active-class="active"
-              :to="`/${ lang }/theme`">{{ langConfig.theme }}
+              :to="`/theme`">{{ langConfig.theme }}
             </router-link>
           </li>
           <li class="nav-item">
             <router-link
               active-class="active"
-              :to="`/${ lang }/resource`"
+              :to="`/resource`"
               exact>{{ langConfig.resource }}
             </router-link>
           </li>
@@ -380,7 +380,7 @@
   import compoLang from '../i18n/component.json';
   import Element from 'main/index.js';
   import themeLoader from './theme/loader';
-  import { getTestEle } from './theme/loader/api.js';
+  // import { getTestEle } from './theme/loader/api.js';
   import bus from '../bus';
   import { ACTION_USER_CONFIG_UPDATE } from './theme/constant.js';
 
@@ -412,7 +412,7 @@
 
     computed: {
       lang() {
-        return this.$route.path.split('/')[1] || 'zh-CN';
+        return 'zh-CN';
       },
       displayedLang() {
         return this.langs[this.lang] || '中文';
@@ -425,26 +425,26 @@
       }
     },
     mounted() {
-      getTestEle()
-        .then(() => {
-          this.$isEle = true;
-          ga('send', 'event', 'DocView', 'Ele', 'Inner');
-        })
-        .catch((err) => {
-          ga('send', 'event', 'DocView', 'Ele', 'Outer');
-          console.error(err);
-        });
+      // getTestEle()
+      //   .then(() => {
+      //     this.$isEle = true;
+      //     ga('send', 'event', 'DocView', 'Ele', 'Inner');
+      //   })
+      //   .catch((err) => {
+      //     ga('send', 'event', 'DocView', 'Ele', 'Outer');
+      //     console.error(err);
+      //   });
   
-      const testInnerImg = new Image();
-      testInnerImg.onload = () => {
-        this.$isEle = true;
-        ga('send', 'event', 'DocView', 'Ali', 'Inner');
-      };
-      testInnerImg.onerror = (err) => {
-        ga('send', 'event', 'DocView', 'Ali', 'Outer');
-        console.error(err);
-      };
-      testInnerImg.src = `https://private-alipayobjects.alipay.com/alipay-rmsdeploy-image/rmsportal/VmvVUItLdPNqKlNGuRHi.png?t=${Date.now()}`;
+      // const testInnerImg = new Image();
+      // testInnerImg.onload = () => {
+      //   this.$isEle = true;
+      //   ga('send', 'event', 'DocView', 'Ali', 'Inner');
+      // };
+      // testInnerImg.onerror = (err) => {
+      //   ga('send', 'event', 'DocView', 'Ali', 'Outer');
+      //   console.error(err);
+      // };
+      // testInnerImg.src = `https://private-alipayobjects.alipay.com/alipay-rmsdeploy-image/rmsportal/VmvVUItLdPNqKlNGuRHi.png?t=${Date.now()}`;
     },
     methods: {
       switchVersion(version) {

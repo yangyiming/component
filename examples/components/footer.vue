@@ -3,13 +3,17 @@
     <div class="container">
       <div class="footer-main">
         <h4>{{ langConfig.links }}</h4>
-        <a href="https://github.com/ElemeFE/element" class="footer-main-link" target="_blank">{{ langConfig.repo }}</a>
+        <a href="https://github.com/ElemeFE/element" class="footer-main-link" target="_blank">Element</a>
+        <a href="https://element.eleme.cn/#/zh-CN" class="footer-main-link" target="_blank">Element 中文官方网站</a>
+        <a href="https://github.com/youzan/vant" class="footer-main-link" target="_blank">Vant</a>
+        <a href="https://vant-contrib.gitee.io/vant/#/zh-CN/" class="footer-main-link" target="_blank">Vant 中文官方网站</a>
+        <!-- <a href="https://github.com/ElemeFE/element" class="footer-main-link" target="_blank">{{ langConfig.repo }}</a>
         <a href="https://github.com/ElemeFE/element/releases" class="footer-main-link" target="_blank">{{ langConfig.changelog }}</a>
         <a href="https://github.com/ElemeFE/element/blob/dev/FAQ.md" class="footer-main-link" target="_blank">{{ langConfig.faq }}</a>
         <a href="https://github.com/ElementUI/element-starter" class="footer-main-link" target="_blank">{{ langConfig.starter }}</a>
         <a :href="'/#/' + lang + '/component/custom-theme'" class="footer-main-link" target="_blank">{{ langConfig.theme }}</a>
         <a href="https://github.com/elemefe/element-react" class="footer-main-link" target="_blank">Element-React</a>
-        <a href="https://github.com/ElemeFE/element-angular" class="footer-main-link" target="_blank">Element-Angular</a>
+        <a href="https://github.com/ElemeFE/element-angular" class="footer-main-link" target="_blank">Element-Angular</a> -->
       </div>
       <div class="footer-main">
         <h4>{{ langConfig.community }}</h4>
@@ -173,7 +177,7 @@
 
     computed: {
       lang() {
-        return this.$route.path.split('/')[1] || 'zh-CN';
+        return 'zh-CN';
       },
 
       langConfig() {
