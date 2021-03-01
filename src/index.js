@@ -3,10 +3,12 @@
 import ElTest from '../packages/element/test/index.js';
 import VanTest from '../packages/vant/test/index.js';
 import VanImage from '../packages/vant/image/index.js';
+import VanScrollRefresh from '../packages/vant/scroll-refresh/index.js';
 const components = [
   ElTest,
   VanTest,
-  VanImage
+  VanImage,
+  VanScrollRefresh
 ]
 const install = function(Vue, opts = {}) {
   components.forEach(component => {
@@ -23,5 +25,6 @@ export default {
   install,
   ElTest,
   VanTest,
-  VanImage
+  VanImage,
+  VanScrollRefresh
 };

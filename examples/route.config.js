@@ -1,9 +1,13 @@
 import navConfig from './nav.config';
-import langs from './i18n/route';
 
 const load = function(path) {
   return r => require.ensure([], () =>
     r(require(`./pages/${path}.vue`)));
+};
+
+const loadMobileDemo = function(path) {
+  return r => require.ensure([], () =>
+    r(require(`./pages/demo/mobile/${path}.vue`)));
 };
 
 const loadmd = function(path) {
@@ -62,13 +66,13 @@ const registerRoute = (navConfig) => {
       component = load('changelog')
     }
     let module = ''
-    if (page.path.indexOf('el-') >= 0) {
+    if (page.path.indexOf('zt-el-') >= 0) {
       module = 'element'
-      let path = page.path.replace('el-', '')
+      let path = page.path.replace('zt-el-', '')
       component = loadDocs(module, path);
-    } else if (page.path.indexOf('van-') >= 0) {
+    } else if (page.path.indexOf('zt-van-') >= 0) {
       module = 'vant'
-      let path = page.path.replace('van-', '')
+      let path = page.path.replace('zt-van-', '')
       component = loadDocs(module, path);
     } else {
       component = loadmd(page.path)
@@ -83,7 +87,6 @@ const registerRoute = (navConfig) => {
       name: 'component-' + (page.title || page.name),
       component: component.default || component
     };
-
     route[0].children.push(child);
   }
 
@@ -92,7 +95,7 @@ const registerRoute = (navConfig) => {
 
 let route = registerRoute(navConfig);
 
-const generateMiscRoutes = function(lang) {
+const generateMiscRoutes = function() {
   let guideRoute = {
     path: '/guide', // 指南
     redirect: '/guide/design',
@@ -105,7 +108,6 @@ const generateMiscRoutes = function(lang) {
     }, {
       path: 'nav', // 导航
       name: 'guide-nav',
-      meta: { lang },
       component: load('nav')
     }]
   };
@@ -144,11 +146,23 @@ const generateMiscRoutes = function(lang) {
 
   return [guideRoute, resourceRoute, themeRoute, indexRoute];
 };
-
-langs.forEach(lang => {
-  route = route.concat(generateMiscRoutes(lang.lang));
-});
-
+const generateMobileRoutes = [{
+  path: '/mobile',
+  name: 'mobile',
+  component: loadMobileDemo('index'),
+  children: [{
+    path: 'van-scroll-refresh/index', //
+    name: 'zt-van-scroll-refresh',
+    component: loadMobileDemo('van-scroll-refresh/index')
+  },
+  {
+    path: 'van-scroll-refresh/waterfall', // 资源
+    name: 'zt-van-scroll-waterfall',
+    component: loadMobileDemo('van-scroll-refresh/waterfall')
+  }]
+}]
+route = route.concat(generateMiscRoutes())
+route = route.concat(generateMobileRoutes)
 route.push({
   path: '/play',
   name: 'play',

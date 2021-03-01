@@ -1,5 +1,5 @@
 <template>
-    <div class="co-van-image">       
+    <div class="zt-van-image">       
       <van-image :src="src" :fit="fit" :round="round" :error-icon="errorUrl" :show-loading="showLoading" :show-error="showError" :width="width" :height="height" @load="loadImg" @error="loadError">
         <template slot="loading">
             <van-loading size="20" />
@@ -13,7 +13,7 @@
     </div>
 </template>
 <script>
-const namespace = 'Co'
+const namespace = 'Zt'
 import { Image, Loading } from 'vant';
 import 'vant/lib/image/style';
 import 'vant/lib/loading/style';
@@ -79,9 +79,11 @@ export default ({
   },
   methods: {
     loadImg() {
+      this.$emit('load')
       this.loadding = false
     },
     loadError() {
+      this.$emit('error')
       // this.loadding = false
       this.loadding = false
       // this.showLoading = false
@@ -91,18 +93,21 @@ export default ({
 })
 </script>
 <style lang="scss" scoped>
-.co-van-image {
+.zt-van-image {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  .van-image {
+    border-radius: 12px;
+    overflow: hidden;
+    &.van-image--round {
+      overflow: hidden;
+      border-radius: 50%;
+    }
+  }
   .default-img {
     height: 100%;
-  }
-  /deep/ img,
-  /deep/ .van-image__loading,
-  /deep/ .van-image__error {
-    border-radius: 12px;
   }
 }
 </style>
