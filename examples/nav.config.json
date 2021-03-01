@@ -23,11 +23,13 @@
           "groupName": "手机端",
           "list": [
             {
-              "path": "/zt-van-image",
+              "path": "/zt-image",
+              "package": "vant",
               "title": "图片组件"
-            },
+            },  
             {
-              "path": "/zt-van-scroll-refresh",
+              "path": "/zt-scroll-refresh",
+              "package": "vant",
               "title": "下拉刷新组件"
             }
           ]

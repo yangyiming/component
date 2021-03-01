@@ -65,14 +65,9 @@ const registerRoute = (navConfig) => {
     if (page.path === '/changelog') {
       component = load('changelog')
     }
-    let module = ''
-    if (page.path.indexOf('zt-el-') >= 0) {
-      module = 'element'
-      let path = page.path.replace('zt-el-', '')
-      component = loadDocs(module, path);
-    } else if (page.path.indexOf('zt-van-') >= 0) {
-      module = 'vant'
-      let path = page.path.replace('zt-van-', '')
+    if (page.path.indexOf('zt-') >= 0) {
+      let module = page.package
+      let path = page.path.replace('zt-', '')
       component = loadDocs(module, path);
     } else {
       component = loadmd(page.path)
@@ -151,14 +146,14 @@ const generateMobileRoutes = [{
   name: 'mobile',
   component: loadMobileDemo('index'),
   children: [{
-    path: 'van-scroll-refresh/index', //
-    name: 'zt-van-scroll-refresh',
-    component: loadMobileDemo('van-scroll-refresh/index')
+    path: 'zt-scroll-refresh/index', //
+    name: 'zt-scroll-refresh',
+    component: loadMobileDemo('zt-scroll-refresh/index')
   },
   {
-    path: 'van-scroll-refresh/waterfall', // 资源
-    name: 'zt-van-scroll-waterfall',
-    component: loadMobileDemo('van-scroll-refresh/waterfall')
+    path: 'zt-scroll-refresh/waterfall', // 资源
+    name: 'zt-scroll-waterfall',
+    component: loadMobileDemo('zt-scroll-refresh/waterfall')
   }]
 }]
 route = route.concat(generateMiscRoutes())

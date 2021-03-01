@@ -1,6 +1,4 @@
 {
-  "el-test": "./packages/element/test/index.js",
-  "van-test": "./packages/vant/test/index.js",
-  "van-image": "./packages/vant/image/index.js",
-  "van-scroll-refresh": "./packages/vant/scroll-refresh/index.js"
+  "zt-image": "./packages/vant/image/index.js",
+  "zt-scroll-refresh": "./packages/vant/scroll-refresh/index.js"
 }

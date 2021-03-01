@@ -7,7 +7,7 @@
 :::demo ZtScrollRefresh 组件由`getList`属性指定异步调用接口，根据返回的数据格式配置`listKey`，即可渲染出滚动列表，`size`用来设置每页数据长度, `slot` 可以定制渲染模版
 ```html
 <template>
-    <mobile-box url="mobile/van-scroll-refresh/index"></mobile-box>
+    <mobile-box url="mobile/zt-scroll-refresh/index"></mobile-box>
 </template>
 <script>
 export default {
@@ -29,7 +29,7 @@ export default {
 :::demo 修改`type`属性`waterfall`设置成瀑布流布局
 ```html
 <template>
-    <mobile-box url="mobile/van-scroll-refresh/waterfall"></mobile-box>
+    <mobile-box url="mobile/zt-scroll-refresh/waterfall"></mobile-box>
 </template>
 <script>
 export default {

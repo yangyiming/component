@@ -61,13 +61,13 @@
 </template>
 
 <script>
-const namespace = 'Zt'
+const namespace = 'zt'
 import { List, PullRefresh, Empty } from 'vant'
 import 'vant/lib/list/style';
 import 'vant/lib/pull-refresh/style';
 import 'vant/lib/empty/style';
 export default {
-  name: namespace + 'VanScrollRefresh',
+  name: namespace + 'ScrollRefresh',
   components: { vanList: List, vanPullRefresh: PullRefresh, vanEmpty: Empty },
   data() {
     return {

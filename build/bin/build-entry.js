@@ -33,22 +33,22 @@ export default {
 
 delete Components.font;
 
-var ComponentNames = Object.keys(Components);
+var ComponentNames = Object.entries(Components);
 
 var includeComponentTemplate = [];
 var installTemplate = [];
 var listTemplate = [];
 
-ComponentNames.forEach(name => {
-  var componentName = uppercamelcase(name);
+ComponentNames.forEach(item => {
+  var componentName = uppercamelcase(item[0]);
+  var componentOrName = item[0];
   let packagestr = ''
-  let modulestr = ''
-  if (name.indexOf('el-') >= 0) {
+  let modulestr = componentOrName.replace('zt-', '')
+  let path = item[1]
+  if (path.indexOf('element') >= 0) {
     packagestr = 'element'
-    modulestr = name.replace('el-', '')
-  } else if (name.indexOf('van-') >= 0) {
+  } else if (path.indexOf('vant') >= 0) {
     packagestr = 'vant'
-    modulestr = name.replace('van-', '')
   }
   includeComponentTemplate.push(render(IMPORT_TEMPLATE, {
     name: componentName,
@@ -58,7 +58,7 @@ ComponentNames.forEach(name => {
 
   installTemplate.push(render(INSTALL_COMPONENT_TEMPLATE, {
     name: componentName,
-    component: name
+    component: componentName
   }));
 
   listTemplate.push(`  ${componentName}`);

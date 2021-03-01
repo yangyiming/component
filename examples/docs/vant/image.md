@@ -10,7 +10,7 @@
 <template>
    <el-row>
      <el-col :span="12">
-        <zt-van-image src="https://img01.yzcdn.cn/vant/cat.jpeg" ></zt-van-image>
+        <zt-image src="https://img01.yzcdn.cn/vant/cat.jpeg" ></zt-image>
      </el-col>
   </el-row>
 </template>
@@ -28,10 +28,10 @@
 <template>
   <el-row>
      <el-col :span="12">
-        <zt-van-image src="https://img01.yzcdn.cn/vant/cat.jpeg" class="round"></zt-van-image>
+        <zt-image src="https://img01.yzcdn.cn/vant/cat.jpeg" class="round"></zt-image>
      </el-col>
      <el-col :span="12">
-        <zt-van-image src="https://img01.yzcdn.cn/vant/cat.jpeg" :round="true"></zt-van-image>
+        <zt-image src="https://img01.yzcdn.cn/vant/cat.jpeg" :round="true"></zt-image>
      </el-col>
   </el-row>
 </template>
@@ -61,7 +61,7 @@ CoVanImage 组件会显示默认展示图
 <template>
   <el-row>
      <el-col :span="12">
-      <zt-van-image src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3626475345,3078425090&fm=26&gp=0.jpg" defaultUrl="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3626475345,3078425090&fm=26&gp=0.jpg"></zt-van-image>
+      <zt-image src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3626475345,3078425090&fm=26&gp=0.jpg" defaultUrl="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3626475345,3078425090&fm=26&gp=0.jpg"></zt-image>
      </el-col>
   </el-row>
 </template>
@@ -79,11 +79,11 @@ CoVanImage 组件会显示默认展示图
 <template>
   <el-row>
      <el-col :span="12">
-        <zt-van-image src="http://paizhe.com/pai/data/attachment/album/201403/04/010507aeysgicteggvbi5c.jpg" :showLoading="true">
+        <zt-image src="http://paizhe.com/pai/data/attachment/album/201403/04/010507aeysgicteggvbi5c.jpg" :showLoading="true">
         <template slot="loading">
           加载中
         </template>
-        </zt-van-image>
+        </zt-image>
      </el-col>
   </el-row>
 </template>

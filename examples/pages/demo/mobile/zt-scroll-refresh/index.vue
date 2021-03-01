@@ -1,17 +1,16 @@
 <template>
-  <zt-van-scroll-refresh
+  <zt-scroll-refresh
       :getList="getList"
       listKey="body.data"
       diffHeight="0"
       :size="size"
-      type="waterfall"
       :refreshDisabled="false"
       emptyText="暂时还没有记录哦~"
     >
       <div slot-scope="{ item, index }">
         <van-cell :title="item.name">{{index}}</van-cell>
       </div>
-    </zt-van-scroll-refresh>
+    </zt-scroll-refresh>
 </template>
 <script>
 import {Cell} from 'vant'
