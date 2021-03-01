@@ -194,6 +194,7 @@ export default {
         })
         .finally(() => {
           this.refreshing = false
+          this.loading = false
           this.$toast.clear()
         })
     },
