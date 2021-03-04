@@ -19,12 +19,11 @@
             class="custom-image"
             :image="emptyImgSrc"
           >
-            <div class="empty">
+            <div class="empty error">
               <div class="description">
                 <p>唔，网络好像有问题...</p>
                 <p>点击页面重新加载</p>
               </div>
-              <!--          <div class="tips">快记录下有趣的小日常吧</div>-->
             </div>
           </van-empty>
         </slot>
@@ -50,9 +49,11 @@
           <slot name="bottom"></slot>
         </div>
         <slot v-else name="empty">
-          <div>
+          <div class="empty">
             <img :src="emptyImgSrc" alt="">
-            <span>{{emptyText}}</span>
+            <div class="description">
+                <span>{{emptyText}}</span>
+            </div>
           </div>
         </slot>
       </van-list>
@@ -61,13 +62,12 @@
 </template>
 
 <script>
-const namespace = 'zt'
 import { List, PullRefresh, Empty } from 'vant'
 import 'vant/lib/list/style';
 import 'vant/lib/pull-refresh/style';
 import 'vant/lib/empty/style';
 export default {
-  name: namespace + 'ScrollRefresh',
+  name: 'ZtScrollRefresh',
   components: { vanList: List, vanPullRefresh: PullRefresh, vanEmpty: Empty },
   data() {
     return {
@@ -116,8 +116,8 @@ export default {
       default: 'id'
     },
     diffHeight: { // 容器高度，与屏幕高度的差值
-      type: String,
-      default: '- 1.066667rem',
+      type: String || Number,
+      default: 0,
       validator: function(val) { // 只支持0 跟 含+ -的值
         if (val === '0') {
           return true
@@ -310,13 +310,13 @@ export default {
 
   .empty {
     .description {
-      font-size: 32px;
+      font-size: 16px;
       color: #1C1C1C;
       opacity: 0.94;
       letter-spacing: 0;
       text-align: center;
-      line-height: 44px;
-      margin-bottom: 16px;
+      line-height: 22px;
+      margin-bottom: 8px;
       margin-top: 20px;
 
       p {

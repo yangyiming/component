@@ -13,12 +13,11 @@
     </div>
 </template>
 <script>
-const namespace = 'zt'
 import { Image, Loading } from 'vant';
 import 'vant/lib/image/style';
 import 'vant/lib/loading/style';
 export default ({
-  name: namespace + 'Image',
+  name: 'ZtImage',
   components: {
     [Image.name]: Image,
     [Loading.name]: Loading

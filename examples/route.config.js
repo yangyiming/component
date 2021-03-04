@@ -25,6 +25,11 @@ const LOAD_DOCS_MAP = {
     return r => require.ensure([], () =>
       r(require(`./docs/vant${path}.md`)),
     'vant');
+  },
+  'dsbridge': path => {
+    return r => require.ensure([], () =>
+      r(require(`./docs/dsbridge${path}.md`)),
+    'vant');
   }
 };
 
@@ -154,6 +159,16 @@ const generateMobileRoutes = [{
     path: 'zt-scroll-refresh/waterfall', // 资源
     name: 'zt-scroll-waterfall',
     component: loadMobileDemo('zt-scroll-refresh/waterfall')
+  },
+  {
+    path: 'zt-scroll-refresh/error', // 资源
+    name: 'zt-scroll-error',
+    component: loadMobileDemo('zt-scroll-refresh/error')
+  },
+  {
+    path: 'zt-scroll-refresh/empty', // 资源
+    name: 'zt-scroll-empty',
+    component: loadMobileDemo('zt-scroll-refresh/empty')
   }]
 }]
 route = route.concat(generateMiscRoutes())

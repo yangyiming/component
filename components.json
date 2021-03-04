@@ -1,4 +1,5 @@
 {
   "zt-image": "./packages/vant/image/index.js",
-  "zt-scroll-refresh": "./packages/vant/scroll-refresh/index.js"
+  "zt-scroll-refresh": "./packages/vant/scroll-refresh/index.js",
+  "zt-report": "./packages/dsbridge/report/index.js"
 }

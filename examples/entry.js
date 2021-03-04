@@ -3,7 +3,7 @@ import entry from './app';
 import mobileEntry from './mobile';
 import VueRouter from 'vue-router';
 import Element from 'element-ui';
-import ZTelement from 'main/index.js';
+import zeta from 'main/index.js';
 import hljs from 'highlight.js';
 import routes from './route.config';
 import demoBlock from './components/demo-block';
@@ -20,7 +20,7 @@ import './assets/styles/common.css';
 import './assets/styles/fonts/style.css';
 import icon from './icon.json';
 
-Vue.use(ZTelement);
+Vue.use(zeta);
 Vue.use(Element);
 Vue.use(VueRouter);
 Vue.component('demo-block', demoBlock);

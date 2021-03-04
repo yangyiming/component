@@ -18,6 +18,7 @@ const install = function(Vue, opts = {}) {
   components.forEach(component => {
     Vue.component(component.name, component);
   });
+  Vue.use(ZtReport);
 };
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
@@ -49,17 +50,20 @@ ComponentNames.forEach(item => {
     packagestr = 'element'
   } else if (path.indexOf('vant') >= 0) {
     packagestr = 'vant'
+  } else if (path.indexOf('dsbridge') >= 0) {
+    packagestr = 'dsbridge'
   }
   includeComponentTemplate.push(render(IMPORT_TEMPLATE, {
     name: componentName,
     package: packagestr,
     module: modulestr
   }));
-
-  installTemplate.push(render(INSTALL_COMPONENT_TEMPLATE, {
-    name: componentName,
-    component: componentName
-  }));
+  if (['ZtReport'].indexOf(componentName) === -1) {
+    installTemplate.push(render(INSTALL_COMPONENT_TEMPLATE, {
+      name: componentName,
+      component: componentName
+    }))
+  }
 
   listTemplate.push(`  ${componentName}`);
 });

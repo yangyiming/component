@@ -2,6 +2,7 @@
 
 import ZtImage from '../packages/vant/image/index.js';
 import ZtScrollRefresh from '../packages/vant/scroll-refresh/index.js';
+import ZtReport from '../packages/dsbridge/report/index.js';
 const components = [
   ZtImage,
   ZtScrollRefresh
@@ -10,6 +11,7 @@ const install = function(Vue, opts = {}) {
   components.forEach(component => {
     Vue.component(component.name, component);
   });
+  Vue.use(ZtReport);
 };
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
@@ -20,5 +22,6 @@ export default {
   version: '1.0.0',
   install,
   ZtImage,
-  ZtScrollRefresh
+  ZtScrollRefresh,
+  ZtReport
 };
